@@ -1,0 +1,74 @@
+INPUT:
+
+// Superclass
+class Person {
+    String name;
+    int age;
+
+    // Constructor
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+
+    void greet() {
+        System.out.println("Hello, I am a person.");
+    }
+}
+
+// Subclass
+class Employee extends Person {
+    String designation;
+    double salary;
+
+    // Constructor
+    Employee(String name, int age, String designation, double salary) {
+        super(name, age);  // call superclass constructor
+        this.designation = designation;
+        this.salary = salary;
+    }
+
+    void displayEmployeeDetails() {
+        // Calling superclass method
+        super.displayDetails();
+        System.out.println("Designation: " + designation);
+        System.out.println("Salary: " + salary);
+    }
+
+    void greet() {
+        // Call superclass method explicitly
+        super.greet();
+        System.out.println("I am also an employee working as " + designation + ".");
+    }
+}
+
+// Main class
+public class SingleInheritanceDemo {
+    public static void main(String[] args) {
+        Employee emp = new Employee("Pratham", 28, "Software Engineer", 60000);
+
+        System.out.println("=== Employee Details ===");
+        emp.displayEmployeeDetails();
+
+        System.out.println("\n=== Greetings ===");
+        emp.greet();
+    }
+}
+
+OUTPUT:
+
+=== Employee Details ===
+Name: Pratham
+Age: 28
+Designation: Software Engineer
+Salary: 60000.0
+
+=== Greetings ===
+Hello, I am a person.
+I am also an employee working as Software Engineer.
+
